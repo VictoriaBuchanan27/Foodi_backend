@@ -26,3 +26,17 @@ usersRouter.get('/:id', (req,res,next)=>{
         next(err);
     })
 });
+
+//PUT - UPDATE
+usersRouter.put('/:id', (req, res, next)=>{
+    const {userName, firstName, email, lastName}= req.body
+    const {id}=req.params;
+
+    UsersService.update(id, userName,email, firstName, lastName)
+    .then(data =>{
+        res.json({success: `updated username ${userName} with ${id}`})
+    })
+    .catch(err=>{
+        next(err);
+    })
+})
