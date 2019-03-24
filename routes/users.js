@@ -40,3 +40,4 @@ usersRouter.put('/:id', (req, res, next)=>{
         next(err);
     })
 })
+module.exports = userRouter;
