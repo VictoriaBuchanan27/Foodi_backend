@@ -9,4 +9,20 @@ usersRouter.post('/', (req,res,next)=>{
     .then(data =>{
         res.json({success: `Created New Username ${userName} with generated ID :${data.id}`})
     })
-})
+    .catch(err =>{
+        next(err);
+    })
+});
+
+//GET 
+usersRouter.get('/:id', (req,res,next)=>{
+    const {id}= req.params;
+
+    UsersService.read(id)
+    .then(data=>{
+        res.json(data);
+    })
+    .catch(err=>{
+        next(err);
+    })
+});
