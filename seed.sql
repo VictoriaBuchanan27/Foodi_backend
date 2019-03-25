@@ -1,7 +1,7 @@
-DROP DATABASE IF EXISTS foodi;
-CREATE DATABASE foodi;
+DROP DATABASE IF EXISTS Foodi;
+CREATE DATABASE Foodi;
 
-c/ foodi;
+c/ Foodi;
 
 CREATE TABLE users (
   id SERIAL PRIMARY KEY,
@@ -23,10 +23,9 @@ CREATE TABLE comments (
   userName VARCHAR UNIQUE NOT NULL,
   TIMESTAMP
 )
-CREATE TABLE restaurants (
+CREATE TABLE likes (
   id SERIAL PRIMARY KEY,
-  name VARCHAR UNIQUE NOT NULL,
-  hometown_id INT REFERENCES cities (id) NOT NULL,
+  userName VARCHAR UNIQUE NOT NULL,
 );
 
 INSERT INTO users (userName, email, firstName, lastName) VALUES
@@ -35,4 +34,3 @@ INSERT INTO users (userName, email, firstName, lastName) VALUES
 ('mikemyers', 'mikemyers@gmail.com', 'mike','myers', 'tacos123'),
 ('poppyj', 'poppyj@gmail.com', 'poppy','jones', '1abcde8')
 
-INSERT INTO restaurants (name, hometown_id) 

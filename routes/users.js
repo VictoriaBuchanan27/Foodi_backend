@@ -2,20 +2,20 @@ const express = require('express');
 const usersRouter = express.Router();
 const UsersService = require('../services/users');
 
-// POST
+//create- POST
 usersRouter.post('/', (req,res,next)=>{
     const{userName, email, firstName, lastName, id} = req.body;
 
     UsersService.create(userName, email, firstName, lastName, id)
     .then(data =>{
-        res.json({success: `Created New Username ${userName} with generated ID :${data.id}`})
+        res.json({success: `New Username ${userName} was created`})
     })
     .catch(err =>{
         next(err);
     })
 });
 
-//GET 
+//read- GET 
 usersRouter.get('/:id', (req,res,next)=>{
     const {id}= req.params;
 
@@ -28,7 +28,7 @@ usersRouter.get('/:id', (req,res,next)=>{
     })
 });
 
-//PUT - UPDATE
+//update- PUT
 usersRouter.put('/:id', (req, res, next)=>{
     const {userName, firstName, email, lastName}= req.body
     const {id}=req.params;
