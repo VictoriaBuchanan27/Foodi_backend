@@ -2,6 +2,7 @@ const express= require('express');
 const bodyParser = require('body-parser');// middeleware
 const cors=require('cors');//cors- can make request from local and remote server.
 const commentsRoutes= require('./comments')//to connect to file 
+const usersRoutes = require('./services/users')
 const app = express();// creating a instance of express
 const port = 3000;
 
@@ -13,7 +14,7 @@ const port = 3000;
 const users=['billy','timmy','vicky']
 
 app.use('/comments',commentsRoutes)
-
+app.use('/users',usersRoutes)
 
 
 
