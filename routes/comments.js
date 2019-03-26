@@ -3,7 +3,7 @@ const commentsRouter = express.Router();
 const CommentsService = require('../services/comments');
 
 // POST - create 
-commentsRouter.post('/comments',(req,res,next)=>{
+commentsRouter.post('/newComment',(req,res,next)=>{
     const{userName, timestamp}= req.body
 
     CommentsService.create(userName, timestamp)
@@ -16,7 +16,7 @@ commentsRouter.post('/comments',(req,res,next)=>{
 })
 
 // GET - read 
-commentsRouter.get('/comments',(req,res,next)=>{
+commentsRouter.get('/readingComments',(req,res,next)=>{
     const{userName,timestamp}= req.body
 
     CommentsService.read(userName, timestamp)

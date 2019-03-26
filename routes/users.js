@@ -27,6 +27,18 @@ usersRouter.get('/:id', (req,res,next)=>{
         next(err);
     })
 });
+//get all users
+usersRouter.get('/getAllUsers', (req,res,next)=>{
+    const {userName}= req.body;
+
+    UsersService.getAllUsers(userName)
+    .then(data=>{
+        res.json(data);
+    })
+    .catch(err=>{
+        next(err);
+    })
+});
 
 //update- PUT
 usersRouter.put('/:id', (req, res, next)=>{
