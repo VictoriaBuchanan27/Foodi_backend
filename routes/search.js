@@ -28,3 +28,17 @@ searchRouter.put('/search', (req, res, next)=>{
         next(err);
     })
 })
+
+//DELETE 
+searchRouter.delete('/search',(req,res,next)=>{
+    const {username} = req.params
+
+    SearchService.delete(id, username)
+    .then( data =>{
+        res.json({success: `Username ${userName} for search has been deleted`})
+    })
+    .catch(err=>{
+        next(err)
+    });
+})
+module.exports = searchRouter;
