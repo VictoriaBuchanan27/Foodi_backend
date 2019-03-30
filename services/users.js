@@ -1,16 +1,18 @@
-const db= require('../routes/users');
+const {db}= require('./dbConnect');
 
-function getAllUsers(req, res, next) {
-    db  
+function getAllUsers(username) {
+    return db  
         .any(
-            `SELECT * FROM users WHERE userName=${userName}`, {userName: req.body.userName}
+            'SELECT * FROM users WHERE username=$[username]', {username: username}
         )
-        .then(() => {
-            res.json({message: "successfully got user"})
+        .then((data) => {
+            return data;
         })
         .catch(err => {
-            console.log('Err couldnt get user')
+            console.log(err)
         })
 }
 
-module.exports = getAllUsers
+module.exports = {
+    getAllUsers,
+}

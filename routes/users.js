@@ -16,22 +16,23 @@ usersRouter.post('/', (req,res,next)=>{
 });
 
 //read- GET 
-usersRouter.get('/:id', (req,res,next)=>{
-    const {id}= req.params;
+// usersRouter.get('/:id', (req,res,next)=>{
+//     const {id}= req.params;
 
-    UsersService.read(id)
-    .then(data=>{
-        res.json(data);
-    })
-    .catch(err=>{
-        next(err);
-    })
-});
+//     UsersService.read(id)
+//     .then(data=>{
+//         res.json(data);
+//     })
+//     .catch(err=>{
+//         next(err);
+//     })
+// });
+
 //get all users
-usersRouter.get('/getAllUsers', (req,res,next)=>{
-    const {userName}= req.body;
+usersRouter.get('/:username', (req,res,next)=>{
+    const {username}= req.params;
 
-    UsersService.getAllUsers(userName)
+    UsersService.getAllUsers(username)
     .then(data=>{
         res.json(data);
     })
@@ -66,4 +67,4 @@ usersRouter.delete('/',(req,res,next)=>{
         next(err)
     });
 })
-module.exports = userRouter;
+module.exports = usersRouter;
