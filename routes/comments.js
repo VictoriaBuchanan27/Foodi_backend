@@ -41,3 +41,5 @@ commentsRouter.put('/comments',(req,res,next)=>{
 
 })
 //delete
+
+module.exports = commentsRouter
