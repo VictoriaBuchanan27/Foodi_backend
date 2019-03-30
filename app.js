@@ -18,7 +18,7 @@ const port = 3000;
 
 app.use('/comments',commentsRoutes)
 app.use('/users',usersRoutes)
-
+app.use('/search', searchRoutes)
 
 
 app.listen(port,()=>{ console.log(`listening on port ${port}`)})
