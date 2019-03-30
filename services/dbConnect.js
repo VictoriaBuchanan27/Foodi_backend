@@ -1,6 +1,7 @@
 const pgp = require('pg-promise')({});
-const db = pgp('postgres://localhost/foodi');
+const connectionString = 'postgres://localhost/foodi';
+const db = pgp(connectionString);
 
 module.exports = {
-    db,
+    db
 }
